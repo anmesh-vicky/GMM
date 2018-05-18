@@ -1,0 +1,10 @@
+# Goal Definition
+uint32 order
+---
+
+# Feedback definition
+uint32 feedback
+---
+
+# Result
+uint32 result
