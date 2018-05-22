@@ -29,6 +29,10 @@ static Ptr<BackgroundSubtractor> pMOG2; //MOG2 Background subtractor
 
  ros::NodeHandle nh;
   image_transport::ImageTransport it(nh);
+
+
+
+
 /**
  * @function processVideo
  */
@@ -143,15 +147,7 @@ void call(const sensor_msgs::ImageConstPtr& msg){
 
 }
 
-void execute(const GMM::GMMConstPtr& goal, Server* as)  // Note: "Action" is not appended to DoDishes here
-{
-  // Do lots of awesome groundbreaking robot stuff here
-  goal_=as->order;
-  if (goal_==1)
-  {
-  image_transport::Subscriber image_sub_ = it.subscribe("input", 1, call);
-  }
-}
+
 
 int main(int argc, char** argv)
 {

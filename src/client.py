@@ -19,7 +19,7 @@ def Mission_client():
     client.wait_for_server()
 
     # Creates a goal to send to the action server.
-    goal = GMM.msg.GMMGoal(order=0)
+    goal = GMM.msg.GMMGoal(order=1)
 
     # Sends the goal to the action server.
     client.send_goal(goal)
