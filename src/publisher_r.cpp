@@ -1,3 +1,4 @@
+
 #include "ros/ros.h"
 #include <image_transport/image_transport.h>
 #include <cv_bridge/cv_bridge.h>
@@ -44,6 +45,8 @@ int main(int argc, char ** argv)
  if(strcmp(argv[1], "-vid") == 0) {
      //input data coming from a video
      VideoCapture cap(argv[2]);
+
+
      Mat frame;
 
      while(nh.ok())

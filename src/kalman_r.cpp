@@ -88,6 +88,7 @@ void kfilter(const std_msgs::Int64MultiArray::ConstPtr& num) {
 
       Point measPt(measurement(0), measurement(1));
        cout<<"error matrix"<<KF.errorCovPost.at<float>(0)<<" "<<KF.errorCovPost.at<float>(1)<<endl;
+      cout<<KF.processNoiseCov.at<float>(0);
       cout << "MEASUREMENT :  " << p << endl;
 
      

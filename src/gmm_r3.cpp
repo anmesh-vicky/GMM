@@ -138,7 +138,7 @@ void processVideo(Mat img) {
         {
             /// Draw contours
 
-            Mat drawing = Mat::zeros( blue_tub.size(), CV_8UC3 );
+            Mat drawing = img.clone();
             Mat dst = Mat::zeros( blue_tub.size(), CV_8UC3 );
 
             int idx = 0, largestComp = 0;
@@ -175,8 +175,8 @@ void processVideo(Mat img) {
             circle( drawing, center[largestComp], (int)radius[largestComp], color, 2, 8, 0 );
            imshow("contours",drawing);
 
-          s.data.push_back(center[largestComp].y);
-         	s.data.push_back(center[largestComp].x);
+          s.data.push_back(/*center[largestComp]*/vertex.y);
+         	s.data.push_back(/*center[largestComp]*/vertex.x);
          	s.data.push_back(radius[largestComp]);
 
            ROS_INFO("Values sent to topic-print\n");
@@ -190,7 +190,7 @@ void processVideo(Mat img) {
 /**re
   * @function call
   */
-void call(const sensor_msgs::ImageConstPtr& msg)
+static void call(const sensor_msgs::ImageConstPtr& msg)
 {if (goal_==1)
 {
   ROS_INFO("IMAGE RECIEVED\n");
@@ -208,7 +208,9 @@ void call(const sensor_msgs::ImageConstPtr& msg)
 
   imshow("FG Mask MOG 2", fgMaskMOG2);
   imshow("Frame", img);
-  waitKey(10);
+  
+
+  waitKey(1);
 }}
 
 int main(int argc, char** argv)
@@ -229,7 +231,7 @@ int main(int argc, char** argv)
 
   	image_transport::Subscriber image_sub_ = it.subscribe("input", 1, call);
 	
-
+  	
   ros::spin();
 
   return 0;
